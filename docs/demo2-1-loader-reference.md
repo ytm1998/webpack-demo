@@ -251,6 +251,26 @@ module.exports = merge(common, {
 });
 ```
 
+### 为什么同时使用 Loader 和 Plugin？
+
+| | **MiniCssExtractPlugin.loader** | **MiniCssExtractPlugin** (plugin) |
+|---|---|---|
+| **作用** | 将 CSS 从 JS 中提取出来 | 将提取的 CSS 保存为独立文件 |
+| **阶段** | 编译阶段（处理模块） | 生成阶段（输出文件） |
+| **类比** | 工厂的生产线工人 | 工厂的打包出货部门 |
+
+**执行流程：**
+
+```
+less-loader → postcss-loader → css-loader → MiniCssExtractPlugin.loader → MiniCssExtractPlugin(plugin)
+    ↓               ↓                ↓                  ↓                           ↓
+ 编译 Less      添加前缀      解析 @import       从 JS 提取 CSS            写入 .css 文件
+```
+
+**⚠️ 注意：** 两者必须同时使用！
+- 只用 loader：CSS 被提取但无法输出到文件，会报错
+- 只用 plugin：CSS 还在 JS 里，plugin 没有东西可处理
+
 ### 关键区别
 
 | 环境 | 样式 Loader | CSS 处理方式 | 适用场景 |
