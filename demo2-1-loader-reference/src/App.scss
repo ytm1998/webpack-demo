@@ -1,0 +1,69 @@
+$primary: #61dafb;
+$dark: #282c34;
+$light: #fff;
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  &-header {
+    background: linear-gradient(135deg, $dark 0%, darken($dark, 10%) 100%);
+    color: $light;
+    padding: 3rem 2rem;
+    text-align: center;
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+    }
+
+    p {
+      opacity: 0.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  }
+
+  &-logo {
+    height: 120px;
+    animation: spin 10s linear infinite;
+  }
+
+  &-main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  &-footer {
+    background-color: $dark;
+    color: $light;
+    padding: 1.5rem;
+    text-align: center;
+    margin-top: auto;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.section {
+  background: $light;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    color: $dark;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $primary;
+    display: inline-block;
+  }
+}

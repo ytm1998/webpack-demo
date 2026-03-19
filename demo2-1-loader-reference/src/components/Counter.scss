@@ -1,0 +1,55 @@
+$primary: #61dafb;
+$dark: #282c34;
+$light: #fff;
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+
+  &-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $dark;
+  }
+
+  &-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &-inc {
+    background-color: $primary;
+    color: $dark;
+  }
+
+  &-dec {
+    background-color: #ff6b6b;
+    color: $light;
+  }
+
+  &-reset {
+    background-color: $dark;
+    color: $light;
+  }
+}
